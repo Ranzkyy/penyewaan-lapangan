@@ -16,24 +16,6 @@ class AkunSeeder extends Seeder
     {
         $user = [
             [
-                'username' => 'user1',  // Change this to a unique username
-                'name' => 'Akunuser',
-                'email' => 'user@gmail.com',
-                'no_WA' => '08978229375',
-                'level' => 'user',
-                'password' => Hash::make('123456'),
-                'tgl_pendaftaran' => '2024-10-15',
-            ],
-            [
-                'username' => 'user17',  // Change this to a unique username
-                'name' => 'Akunuser17',
-                'email' => 'user17@gmail.com',
-                'no_WA' => '08978229375',
-                'level' => 'user',
-                'password' => Hash::make('123456'),
-                'tgl_pendaftaran' => '2024-10-15',
-            ],
-            [
                 'username' => 'user18',  // Change this to a unique username
                 'name' => 'Akunuser18',
                 'email' => 'user18@gmail.com',
@@ -51,15 +33,6 @@ class AkunSeeder extends Seeder
                 'password' => Hash::make('123456'),
                 'tgl_pendaftaran' => '2024-10-15',
             ],
-            [
-                'username' => 'admin17',  // Already unique, no need to change
-                'name' => 'AkunAdmin17',
-                'email' => 'admin17@gmail.com',
-                'no_WA' => '08978229375',
-                'level' => 'admin',
-                'password' => Hash::make('123456'),
-                'tgl_pendaftaran' => '2024-10-15',
-            ]
         ];
 
         foreach ($user as $value) {

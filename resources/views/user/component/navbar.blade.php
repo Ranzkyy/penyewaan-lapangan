@@ -1,4 +1,4 @@
-<div class="w-full bg-[#637E76] flex justify-around py-4 place-items-center shadow-2xl sticky top-0 z-50">
+<div class="w-full bg-[#637E76] flex justify-around py-4 place-items-center shadow-2xl fixed top-0 left-0 right-0 z-50">
     <div class="flex place-items-center font-semibold gap-2">
         <img src="{{ asset('images/24fc9417-bbdd-4268-ad15-4874be8f411e.png') }}" alt="" class="w-12">
         <p class="font-sans text-2xl text-white hover:text-[#C69774]">Fikri Haikal</p>

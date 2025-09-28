@@ -6,8 +6,9 @@
 
     @include('user.component.navbar')
 
-    <h1 class="bg-[#F8DFD4] text-3xl font-bold text-gray-600 text-center pt-10">Pesan Lapangan Sekarang</h1>
-    <div class="w-full h-screen flex items-center justify-center bg-[#F8DFD4]">
+    <div class="bg-[#F8DFD4] min-h-screen pt-20">
+        <h1 class="text-3xl font-bold text-gray-600 text-center py-10">Pesan Lapangan Sekarang</h1>
+        <div class="w-full flex items-center justify-center">
 
         <div class="bg-[#637E76] p-10 rounded-lg shadow-lg max-w-md w-1/2 flex justify-center items-center">
             <img src="{{ asset('images/' . $kategori->foto_222142) }}" alt="Badminton Court" class="w-80 h-80">
@@ -80,6 +81,7 @@
             </div>
         </div>
     </div>
+</div>
 
     @include('user.component.footer')
     <script>

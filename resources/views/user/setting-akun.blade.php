@@ -4,7 +4,7 @@
 
 @include('user.component.navbar')
 
-<div class="bg-[#F8DFD4] w-full min-h-screen py-10">
+<div class="bg-[#F8DFD4] w-full min-h-screen py-10 pt-20">
     <h1 class="text-center font-bold text-4xl text-gray-600">Setting Akun</h1>
 
     <div class="max-w-xl mx-auto mt-8 bg-white p-6 rounded-lg shadow-lg">

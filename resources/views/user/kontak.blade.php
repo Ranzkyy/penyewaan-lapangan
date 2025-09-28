@@ -4,7 +4,7 @@
 
 @include('user.component.navbar')
 
-<div class="w-full bg-gradient-to-b from-[#f8c4a5] to-[#f4e3d6] h-[600px]">
+<div class="w-full bg-gradient-to-b from-[#f8c4a5] to-[#f4e3d6] min-h-screen pt-20">
     <h1 class="text-4xl text-gray-700 font-extrabold text-center py-10">Kontak Kami</h1>
     <div class="flex justify-center space-x-16 mt-10">
         <div class="transition-transform transform hover:scale-105 hover:shadow-xl rounded-lg p-4 bg-white flex items-center space-x-4">

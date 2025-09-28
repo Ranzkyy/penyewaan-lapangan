@@ -1,4 +1,4 @@
-<div class="w-full flex  h-screen  bg-gradient-to-b from-[#C69774] to-[#F8DFD4]">
+<div class="w-full flex h-screen bg-gradient-to-b from-[#C69774] to-[#F8DFD4] pt-20">
 
     <div class="w-1/2   px-20">
         <p class="text-4xl font-bold pt-52">

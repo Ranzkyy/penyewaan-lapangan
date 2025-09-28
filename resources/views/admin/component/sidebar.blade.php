@@ -1,4 +1,4 @@
-<div class=" sticky top-0 bg-[#637E76] w-80 px-3">
+<div class="fixed top-0 left-0 h-full bg-[#637E76] w-64 px-3 z-40 overflow-y-auto">
     <div class="flex place-items-center font-semibold gap-2 place-content-center py-5 border-b-4">
         <img src="{{ asset('images/24fc9417-bbdd-4268-ad15-4874be8f411e.png') }}" alt="" class="w-12">
         <p class="font-sans text-2xl text-white hover:text-[#C69774]">Fikri Haikal</p>
@@ -28,12 +28,10 @@
         <a href="{{route('admin_scan_qr')}}" class="text-white font-bold text-xl">Scan QR Code</a>
     </div>
 
-    <div class="pt-64">
-        <div class=" border-t-4">
-            <div class=" hover:bg-red-600 transition duration-500 rounded-md">
-                <div class="grid  pl-10  my-2 py-3 ">
-                    <a href="{{ route('logout') }}" class="text-white font-bold text-xl">Keluar</a>
-                </div>
+    <div class="absolute bottom-0 left-0 right-0 p-3 border-t-4">
+        <div class="hover:bg-red-600 transition duration-500 rounded-md">
+            <div class="grid pl-10 my-2 py-3">
+                <a href="{{ route('logout') }}" class="text-white font-bold text-xl">Keluar</a>
             </div>
         </div>
     </div>

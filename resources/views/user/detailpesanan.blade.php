@@ -4,7 +4,7 @@
 
     @include('user.component.navbar')
 
-    <div class="bg-[#F8DFD4] min-h-screen py-10 flex flex-col items-center">
+    <div class="bg-[#F8DFD4] min-h-screen py-10 flex flex-col items-center pt-20">
         <h1 class="text-3xl font-bold text-gray-600 mb-8">Detail Pesanan</h1>
 
         <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">

@@ -1,4 +1,4 @@
-<div class="bg-[#F8DFD4] pb-32">
+<div class="bg-[#F8DFD4] pb-32 min-h-screen">
     <div class="font-bold text-4xl grid pt-10 place-items-center  ">
         <H1 class="hover:text-[#637E76]">Fitur</H1>
     </div>

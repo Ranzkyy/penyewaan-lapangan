@@ -1,9 +1,9 @@
 @extends('user.component.master')
 @section('judul', 'Tambah/Edit Data Pengguna')
 @section('konten')
-    <div class="flex bg-[#F8DFD4]">
+    <div class="flex">
         @include('admin.component.sidebar')
-        <div class="w-full">
+        <div class="w-full ml-64 bg-[#F8DFD4] min-h-screen">
             <h1 class="text-center w-full text-gray-600 font-extrabold text-4xl py-5">
                 {{ isset($kategori) ? 'Edit Data Konfirmasi' : 'Tambah Data Konfirmasi' }}</h1>
             <div class="pl-10 pt-10">

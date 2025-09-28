@@ -3,7 +3,7 @@
 @section('konten')
     @include('user.component.navbar')
 
-    <div class="bg-[#F8DFD4] w-full p-6 min-h-[600px] flex justify-center items-center">
+    <div class="bg-[#F8DFD4] w-full p-6 min-h-screen flex justify-center items-center pt-20">
         <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md border border-gray-200">
             <h1 class="text-2xl font-semibold text-center text-gray-700 mb-6">Konfirmasi Bukti Pembayaran</h1>
 

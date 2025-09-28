@@ -1,9 +1,9 @@
 @extends('user.component.master')
 @section('judul')
 @section('konten')
-<div class="flex bg-[#F8DFD4]">
+<div class="flex">
     @include('admin.component.sidebar')
-    <div class="w-full">
+    <div class="w-full ml-64 bg-[#F8DFD4] min-h-screen">
         <div class=" place-items-center grid mb-16">
             <img src="{{asset('images/badminton_logo_-_Dibuat_dengan_PosterMyWall__1_-removebg-preview.png')}}" alt="" class="w-72 h-72">
             <h1 class="font-bold text-gray-600">Kamu Admin bekerja yang fokus dan baik karena senangnya pelanggan itu semua berkat kamu..!!</h1>

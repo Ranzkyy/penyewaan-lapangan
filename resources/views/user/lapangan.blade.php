@@ -3,7 +3,7 @@
 @section('konten')
 
 @include('user.component.navbar')
-<div class="bg-[#F8DFD4] w-full pb-10">
+<div class="bg-[#F8DFD4] w-full pb-10 pt-20 min-h-screen">
     <h1 class="text-center font-bold text-4xl text-gray-600 py-10">Pesan Lapangan</h1>
 
     <div class="flex flex-wrap justify-center gap-10 w-full px-5">

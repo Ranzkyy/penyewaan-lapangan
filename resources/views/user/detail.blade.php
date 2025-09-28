@@ -3,7 +3,7 @@
 @section('konten')
     @include('user.component.navbar')
 
-    <div class="bg-[#F8DFD4] w-full flex flex-wrap lg:flex-nowrap pb-24 h-screen">
+    <div class="bg-[#F8DFD4] w-full flex flex-wrap lg:flex-nowrap pb-24 min-h-screen pt-20">
         <!-- Bagian Kiri -->
         <div class="w-full lg:w-1/2 grid place-items-center py-10">
             <img src="{{ asset('images/' . $kategori->foto_222142) }}" alt="Foto Kategori" class="w-2/3 rounded-lg shadow-lg">

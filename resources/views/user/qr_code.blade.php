@@ -3,7 +3,7 @@
 @section('konten')
     @include('user.component.navbar')
 
-    <div class="bg-[#F8DFD4] w-full p-6 space-y-8 min-h-[600px]">
+    <div class="bg-[#F8DFD4] w-full p-6 space-y-8 min-h-screen pt-20">
         <div class="max-w-md mx-auto bg-white rounded-lg shadow-lg p-8">
             <h1 class="text-center text-2xl font-bold text-gray-700 mb-6">QR Code Booking</h1>
 

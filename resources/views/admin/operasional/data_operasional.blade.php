@@ -1,9 +1,9 @@
 @extends('user.component.master')
 @section('judul', 'Data Pengguna')
 @section('konten')
-    <div class="flex bg-[#F8DFD4]">
+    <div class="flex">
         @include('admin.component.sidebar')
-        <div class="w-full">
+        <div class="w-full ml-64 bg-[#F8DFD4] min-h-screen">
             <h1 class="text-center w-full text-gray-600 font-extrabold text-4xl py-5">Operasional</h1>
 
             <div class="py-5 pl-10 pr-10 flex justify-center gap-10">

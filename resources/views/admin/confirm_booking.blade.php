@@ -90,7 +90,7 @@
                             <span class="text-green-800 font-medium">Waktu Booking Valid</span>
                         </div>
                         <p class="text-green-700 text-sm mt-1">
-                            Waktu saat ini: <strong>{{ now()->format('d/m/Y H:i') }}</strong><br>
+                            Waktu saat ini: <strong>{{ \Carbon\Carbon::now('Asia/Jakarta')->format('d/m/Y H:i') }}</strong><br>
                             Rentang booking: <strong>{{ $booking->jam_mulai_222142 }} - {{ $booking->jam_selesai_222142 }}</strong><br>
                             <span class="text-xs">✓ Kode referal dapat diproses dalam rentang waktu booking</span>
                         </p>

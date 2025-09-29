@@ -24,6 +24,13 @@
                         @php
                             $start = \Carbon\Carbon::createFromFormat('H:i:s', trim($operasional->jam_buka_222142));
                             $end = \Carbon\Carbon::createFromFormat('H:i:s', trim($operasional->jam_tutup_222142));
+                            
+                            // Get current time
+                            $now = \Carbon\Carbon::now();
+                            $currentTime = $now->format('H:i');
+                            $selectedDate = \Carbon\Carbon::parse($tanggal);
+                            $isToday = $selectedDate->isToday();
+                            
                             $bookedIntervals = $jam
                                 ->filter(function ($booking) {
                                     return $booking->status_222142 === 'aktif';
@@ -46,11 +53,22 @@
                             @php
                                 $time = $start->format('H:i');
                                 $isBooked = in_array($time, $bookedIntervals);
+                                
+                                // Check if time has passed (only for today)
+                                $timeHasPassed = false;
+                                if ($isToday) {
+                                    $timeHasPassed = $time <= $currentTime;
+                                }
+                                
+                                // Check if date is in the past
+                                $dateInPast = $selectedDate->isPast() && !$selectedDate->isToday();
+                                
+                                $isDisabled = $isBooked || $timeHasPassed || $dateInPast;
                             @endphp
 
                             <button
-                                class="{{ $isBooked ? 'bg-red-600 cursor-not-allowed' : 'bg-[#C69774]' }} py-1 rounded-lg hover:scale-105 transition-transform select-time"
-                                data-time="{{ $time }}" {{ $isBooked ? 'disabled' : '' }}>
+                                class="{{ $isDisabled ? 'bg-red-600 cursor-not-allowed' : 'bg-[#C69774]' }} py-1 rounded-lg hover:scale-105 transition-transform select-time"
+                                data-time="{{ $time }}" {{ $isDisabled ? 'disabled' : '' }}>
                                 {{ $time }}
                             </button>
 
@@ -96,8 +114,8 @@
                     e.preventDefault();
                     const time = button.getAttribute('data-time');
 
-                    // Abaikan jika tombol sudah booked
-                    if (button.classList.contains('bg-red-600')) {
+                    // Abaikan jika tombol sudah disabled (booked, lewat waktu, atau tanggal lewat)
+                    if (button.disabled || button.classList.contains('bg-red-600')) {
                         return;
                     }
 
@@ -114,6 +132,15 @@
                     selectedTimesInput.value = Array.from(selectedTimes).join(',');
                     console.log("Selected Times:", selectedTimesInput.value); // Debugging
                 });
+            });
+
+            // Disable form submission if no times selected
+            const form = document.getElementById('booking-form');
+            form.addEventListener('submit', (e) => {
+                if (selectedTimes.size === 0) {
+                    e.preventDefault();
+                    alert('Silakan pilih minimal satu jadwal waktu!');
+                }
             });
         });
     </script>

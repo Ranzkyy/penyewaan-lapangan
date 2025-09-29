@@ -53,7 +53,7 @@
                         {{-- Status Badge --}}
                         <div
                             class="px-3 py-1 rounded-lg font-semibold text-sm text-white
-                            {{ $b->status_222142 == 'proses' ? 'bg-yellow-500' : ($b->status_222142 == 'aktif' ? 'bg-green-600' : ($b->status_222142 == 'berjalan' ? 'bg-blue-600' : 'bg-red-600')) }}">
+                            {{ $b->status_222142 == 'proses' ? 'bg-yellow-500' : ($b->status_222142 == 'aktif' ? 'bg-green-600' : ($b->status_222142 == 'berjalan' ? 'bg-blue-600' : ($b->status_222142 == 'selesai' ? 'bg-gray-600' : ($b->status_222142 == 'invalid' ? 'bg-red-600' : 'bg-red-600')))) }}">
                             {{ ucfirst($b->status_222142) }}
                         </div>
 
@@ -76,6 +76,20 @@
                         @if ($b->status_222142 == 'berjalan')
                             <div class="bg-blue-500 text-white py-2 px-4 rounded-lg font-medium text-sm">
                                 Sedang Berjalan
+                            </div>
+                        @endif
+
+                        {{-- Status Selesai --}}
+                        @if ($b->status_222142 == 'selesai')
+                            <div class="bg-gray-600 text-white py-2 px-4 rounded-lg font-medium text-sm">
+                                Selesai
+                            </div>
+                        @endif
+
+                        {{-- Status Invalid --}}
+                        @if ($b->status_222142 == 'invalid')
+                            <div class="bg-red-600 text-white py-2 px-4 rounded-lg font-medium text-sm">
+                                Terlewat
                             </div>
                         @endif
                     </div>

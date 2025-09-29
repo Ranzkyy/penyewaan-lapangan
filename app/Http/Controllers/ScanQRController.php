@@ -33,6 +33,12 @@ class ScanQRController extends Controller
 
             // Check if booking is active
             if ($booking->status_222142 !== 'aktif') {
+                if ($booking->status_222142 === 'selesai') {
+                    return redirect()->back()->with('error', 'Booking sudah selesai dan tidak dapat diproses lagi');
+                }
+                if ($booking->status_222142 === 'invalid') {
+                    return redirect()->back()->with('error', 'Booking sudah invalid karena tidak dilakukan registrasi dalam waktu yang ditentukan');
+                }
                 return redirect()->back()->with('error', 'Booking tidak dalam status aktif');
             }
 

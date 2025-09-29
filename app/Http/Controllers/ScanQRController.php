@@ -36,16 +36,16 @@ class ScanQRController extends Controller
                 return redirect()->back()->with('error', 'Booking tidak dalam status aktif');
             }
 
-            // Check if booking is for today (using Asia/Jakarta timezone)
-            $today = Carbon::now('Asia/Jakarta')->format('Y-m-d');
+            // Check if booking is for today (using Asia/Kuala_Lumpur timezone)
+            $today = Carbon::now('Asia/Kuala_Lumpur')->format('Y-m-d');
             if ($booking->tgl_booking_222142 !== $today) {
                 return redirect()->back()->with('error', 'Booking bukan untuk hari ini');
             }
 
-            // Check if current time is within booking time (using Asia/Jakarta timezone)
-            $now = Carbon::now('Asia/Jakarta');
-            $bookingStart = Carbon::createFromFormat('Y-m-d H:i:s', $booking->tgl_booking_222142 . ' ' . $booking->jam_mulai_222142, 'Asia/Jakarta');
-            $bookingEnd = Carbon::createFromFormat('Y-m-d H:i:s', $booking->tgl_booking_222142 . ' ' . $booking->jam_selesai_222142, 'Asia/Jakarta');
+            // Check if current time is within booking time (using Asia/Kuala_Lumpur timezone)
+            $now = Carbon::now('Asia/Kuala_Lumpur');
+            $bookingStart = Carbon::createFromFormat('Y-m-d H:i:s', $booking->tgl_booking_222142 . ' ' . $booking->jam_mulai_222142, 'Asia/Kuala_Lumpur');
+            $bookingEnd = Carbon::createFromFormat('Y-m-d H:i:s', $booking->tgl_booking_222142 . ' ' . $booking->jam_selesai_222142, 'Asia/Kuala_Lumpur');
             
             // Allow processing if current time is within booking hours
             if ($now < $bookingStart) {

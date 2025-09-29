@@ -3,28 +3,48 @@
 @section('konten')
     <div class="flex">
         @include('admin.component.sidebar')
-        <div class="w-full ml-64 bg-[#F8DFD4] min-h-screen">
-            <h1 class="text-center w-full text-gray-600 font-extrabold text-4xl py-5">Operasional</h1>
 
-            <div class="py-5 pl-10 pr-10 flex justify-center gap-10">
-                <div class="bg-orange-300 py-5 px-10 text-white font-bold text-2xl text-center">
-                    <h1>Jam Buka</h1>
-                    <h1>{{ $operasional->jam_buka_222142 }}</h1>
+        <!-- Kontainer Utama -->
+        <div class="w-full md:ml-64 bg-gradient-to-br from-[#F8DFD4] via-white to-[#fefefe] min-h-screen p-6">
+            <!-- Judul -->
+            <h1 class="text-center text-gray-700 font-extrabold text-3xl md:text-4xl py-6 tracking-wide">
+                Operasional
+            </h1>
+
+            <!-- Card Jam Buka & Tutup -->
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12 mb-10">
+
+                <!-- Card Jam Buka -->
+                <div class="bg-gradient-to-tr from-orange-400 to-orange-500 rounded-2xl shadow-xl
+                            hover:shadow-2xl transform hover:scale-105 transition duration-300
+                            w-64 md:w-72 h-36 flex flex-col justify-center items-center text-white">
+                    <h1 class="font-semibold text-lg md:text-xl">Jam Buka</h1>
+                    <h1 class="font-extrabold text-2xl md:text-3xl mt-2">
+                        {{ $operasional->jam_buka_222142 }}
+                    </h1>
                 </div>
-                <div class="bg-orange-300 py-5 px-10 text-white font-bold text-2xl text-center">
-                    <h1>Jam Tutup</h1>
-                    <h1>{{ $operasional->jam_tutup_222142 }}</h1>
+
+                <!-- Card Jam Tutup -->
+                <div class="bg-gradient-to-tr from-orange-400 to-orange-500 rounded-2xl shadow-xl
+                            hover:shadow-2xl transform hover:scale-105 transition duration-300
+                            w-64 md:w-72 h-36 flex flex-col justify-center items-center text-white">
+                    <h1 class="font-semibold text-lg md:text-xl">Jam Tutup</h1>
+                    <h1 class="font-extrabold text-2xl md:text-3xl mt-2">
+                        {{ $operasional->jam_tutup_222142 }}
+                    </h1>
                 </div>
             </div>
-            <div class="grid place-content-center">
+
+            <!-- Tombol Edit -->
+            <div class="flex justify-center">
                 <a href="{{ route('proses_editoperasional', $operasional->id) }}"
-                    class="bg-green-400 text-white font-bold text-center py-3 px-2 rounded-xl shadow-lg hover:bg-green-600">Edit
-                    Jam Operasional</a>
+                   class="bg-gradient-to-r from-green-400 to-green-500 hover:from-green-500 hover:to-green-600
+                          text-white font-bold text-lg md:text-xl text-center py-3 px-6
+                          rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+                    ✏️ Edit Jam Operasional
+                </a>
             </div>
-
 
         </div>
-
     </div>
-
 @endsection

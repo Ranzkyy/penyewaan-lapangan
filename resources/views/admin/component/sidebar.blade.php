@@ -39,7 +39,7 @@
             <a href="{{route('admin_konfirmasi')}}" class="text-white font-bold text-lg md:text-xl">Konfirmasi Pesanan</a>
         </div>
         <div class="grid pl-6 md:pl-10 my-2 py-3 hover:bg-[#C69774] transition duration-500 rounded-md">
-            <a href="{{route('admin_scan_qr')}}" class="text-white font-bold text-lg md:text-xl">Scan QR Code</a>
+            <a href="{{route('admin_scan_referral')}}" class="text-white font-bold text-lg md:text-xl">Scan Kode Referal</a>
         </div>
     </div>
 

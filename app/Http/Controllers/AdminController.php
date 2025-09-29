@@ -11,7 +11,6 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use DateTime;
-use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 
 class AdminController extends Controller
@@ -23,8 +22,7 @@ class AdminController extends Controller
         $lapangan = lapangan::all()->count();
         $pesan = booking::all()->count();
         $konfir = konfirmasi::all()->count();
-        $qrCodes = booking::whereNotNull('qr_code_222142')->count();
-        return view('admin.dashboard', compact('pengguna', 'lapangan', 'pesan', 'konfir', 'qrCodes'));
+        return view('admin.dashboard', compact('pengguna', 'lapangan', 'pesan', 'konfir'));
     }
 
     public function pengguna(Request $request)
@@ -549,40 +547,13 @@ class AdminController extends Controller
         $booking = booking::findOrFail($konfirmasi->id_booking);
         $booking->status_222142 = 'aktif';
         
-        // Generate QR code data
-        $qrData = json_encode([
-            'booking_id' => $booking->id,
-            'user_id' => $booking->id_user,
-            'lapangan_id' => $booking->id_lapangan,
-            'tanggal' => $booking->tgl_booking_222142,
-            'jam_mulai' => $booking->jam_mulai_222142,
-            'jam_selesai' => $booking->jam_selesai_222142,
-            'status' => 'aktif',
-            'total' => $booking->total_222142,
-            'timestamp' => now()->toISOString()
-        ]);
-
-        // Generate QR code filename
-        $qrCodeFilename = 'qr_code_' . $booking->id . '_' . time() . '.svg';
-        
-        // Generate and save QR code using SVG format
-        $qrCode = QrCode::size(300)
-                       ->format('svg')
-                       ->backgroundColor(255, 255, 255)
-                       ->color(0, 0, 0)
-                       ->generate($qrData);
-        
-        // Save QR code to public/images directory
-        file_put_contents(public_path('images/' . $qrCodeFilename), $qrCode);
-        
         // Generate referral code
         $referralCode = 'BK' . str_pad($booking->id, 4, '0', STR_PAD_LEFT) . '-' . strtoupper(substr(md5($booking->id . time()), 0, 4));
         
-        $booking->qr_code_222142 = $qrCodeFilename;
         $booking->referral_code_222142 = $referralCode;
         $booking->save();
         $konfirmasi->delete();
-        return redirect()->route('admin_konfirmasi')->with('Success', 'berhasil dikonfirmasi dan QR Code telah dibuat');
+        return redirect()->route('admin_konfirmasi')->with('Success', 'berhasil dikonfirmasi dan kode referal telah dibuat');
     }
 
     public function tolak_konfirmasi($id)

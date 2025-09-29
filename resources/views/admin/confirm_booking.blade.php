@@ -14,7 +14,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                             </svg>
                         </div>
-                        <h2 class="text-2xl font-bold text-gray-800 mb-2">QR Code Valid!</h2>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-2">Kode Referal Valid!</h2>
                         <p class="text-gray-600">Detail booking ditemukan. Silakan konfirmasi kedatangan user.</p>
                     </div>
 
@@ -92,7 +92,7 @@
                         <p class="text-green-700 text-sm mt-1">
                             Waktu saat ini: <strong>{{ now()->format('d/m/Y H:i') }}</strong><br>
                             Rentang booking: <strong>{{ $booking->jam_mulai_222142 }} - {{ $booking->jam_selesai_222142 }}</strong><br>
-                            <span class="text-xs">✓ QR Code/kode referal dapat diproses dalam rentang waktu booking</span>
+                            <span class="text-xs">✓ Kode referal dapat diproses dalam rentang waktu booking</span>
                         </p>
                     </div>
 
@@ -108,7 +108,7 @@
                             </button>
                         </form>
                         
-                        <a href="{{ route('admin_scan_qr') }}" class="bg-gray-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-600 transition duration-300 flex items-center">
+                        <a href="{{ route('admin_scan_referral') }}" class="bg-gray-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-600 transition duration-300 flex items-center">
                             <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                             </svg>

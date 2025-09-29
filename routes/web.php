@@ -3,7 +3,6 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\QRCodeController;
 use App\Http\Controllers\ScanQRController;
 use Illuminate\Support\Facades\Route;
 
@@ -77,9 +76,9 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('proses_terimakonfirmasi/{id}', [AdminController::class, 'terima_konfirmasi'])->name('terimakonfirmasi');
         Route::post('proses_tolakkonfirmasi/{id}', [AdminController::class, 'tolak_konfirmasi'])->name('tolakkonfirmasi');
 
-        // Scan QR Code routes
-        Route::get('/admin/scan-qr', [ScanQRController::class, 'showScanPage'])->name('admin_scan_qr');
-        Route::post('/admin/process-qr', [ScanQRController::class, 'processQRCode'])->name('admin_process_qr');
+        // Scan Referral Code routes
+        Route::get('/admin/scan-referral', [ScanQRController::class, 'showScanPage'])->name('admin_scan_referral');
+        Route::post('/admin/process-referral', [ScanQRController::class, 'processReferralCode'])->name('admin_process_referral');
         Route::post('/admin/confirm-booking/{id}', [ScanQRController::class, 'confirmBooking'])->name('admin_confirm_booking');
         Route::get('/admin/booking-info/{id}', [ScanQRController::class, 'getBookingInfo'])->name('admin_booking_info');
     });
@@ -103,8 +102,3 @@ Route::put('/update-akun', [UserController::class, 'updateAkun'])->name('updateA
 // cetak
 Route::get('/cetak-booking', [UserController::class, 'cetak'])->name('cetak_booking');
 
-// QR Code routes
-Route::group(['middleware' => ['auth']], function () {
-    Route::get('/qr-code/{bookingId}', [QRCodeController::class, 'showQRCode'])->name('qr_code.show');
-    Route::get('/qr-code/{bookingId}/generate', [QRCodeController::class, 'generateQRCode'])->name('qr_code.generate');
-});

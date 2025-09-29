@@ -65,12 +65,11 @@
                             </a>
                         @endif
 
-                        {{-- Tombol QR Code --}}
-                        @if ($b->status_222142 == 'aktif' && $b->qr_code_222142)
-                            <a href="{{ route('qr_code.show', $b->id) }}"
-                                class="bg-green-500 text-white py-2 px-4 rounded-lg font-medium hover:bg-green-600 transition duration-200 text-sm">
-                                Lihat QR Code
-                            </a>
+                        {{-- Tombol Kode Referal --}}
+                        @if ($b->status_222142 == 'aktif' && $b->referral_code_222142)
+                            <div class="bg-green-500 text-white py-2 px-4 rounded-lg font-medium text-sm">
+                                Kode Referal: {{ $b->referral_code_222142 }}
+                            </div>
                         @endif
 
                         {{-- Status Berjalan --}}

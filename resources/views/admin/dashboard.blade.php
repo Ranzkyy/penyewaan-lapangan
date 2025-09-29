@@ -26,15 +26,8 @@
                 <h1 class="text-white font-bold text-lg md:text-xl">Konfirmasi</h1>
                 <h1 class="text-center text-white text-2xl md:text-4xl font-extrabold">{{$konfir}}</h1>
             </div>
-            <div class="bg-green-600 h-24 md:h-28 rounded-lg w-48 md:w-56 place-content-center items-center grid transition-transform transform hover:scale-110 shadow-2xl">
-                <h1 class="text-white font-bold text-lg md:text-xl">QR Codes</h1>
-                <h1 class="text-center text-white text-2xl md:text-4xl font-extrabold">{{$qrCodes}}</h1>
-            </div>
         </div>
     </div>
-
-
-
 </div>
 
 

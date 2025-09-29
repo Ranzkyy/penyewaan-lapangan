@@ -14,55 +14,21 @@ class ScanQRController extends Controller
 {
     public function showScanPage()
     {
-        return view('admin.scan_qr');
+        return view('admin.scan_referral');
     }
 
-    public function processQRCode(Request $request)
+    public function processReferralCode(Request $request)
     {
         $request->validate([
-            'qr_data' => 'nullable|string',
-            'referral_code' => 'nullable|string'
+            'referral_code' => 'required|string'
         ]);
 
         try {
-            $booking = null;
-            $bookingId = null;
-
-            // Check if referral code is provided
-            if ($request->filled('referral_code')) {
-                $referralCode = $request->referral_code;
-                $booking = booking::where('referral_code_222142', $referralCode)->first();
-                
-                if (!$booking) {
-                    return redirect()->back()->with('error', 'Kode referal tidak ditemukan');
-                }
-                
-                $bookingId = $booking->id;
-            } 
-            // Check if QR data is provided
-            elseif ($request->filled('qr_data')) {
-                // Decode QR data (JSON)
-                $qrData = json_decode($request->qr_data, true);
-                
-                if (!$qrData) {
-                    return redirect()->back()->with('error', 'Data QR Code tidak valid');
-                }
-
-                // Get booking ID from QR data
-                $bookingId = $qrData['booking_id'] ?? null;
-                
-                if (!$bookingId) {
-                    return redirect()->back()->with('error', 'ID Booking tidak ditemukan dalam QR Code');
-                }
-
-                // Find booking
-                $booking = booking::find($bookingId);
-                
-                if (!$booking) {
-                    return redirect()->back()->with('error', 'Booking tidak ditemukan');
-                }
-            } else {
-                return redirect()->back()->with('error', 'Harap masukkan QR Code atau Kode Referal');
+            $referralCode = $request->referral_code;
+            $booking = booking::where('referral_code_222142', $referralCode)->first();
+            
+            if (!$booking) {
+                return redirect()->back()->with('error', 'Kode referal tidak ditemukan');
             }
 
             // Check if booking is active
@@ -110,7 +76,7 @@ class ScanQRController extends Controller
         $booking->status_222142 = 'berjalan';
         $booking->save();
 
-        return redirect()->route('admin_scan_qr')->with('success', 'Booking berhasil dikonfirmasi dan status diubah menjadi berjalan');
+        return redirect()->route('admin_scan_referral')->with('success', 'Booking berhasil dikonfirmasi dan status diubah menjadi berjalan');
     }
 
     public function getBookingInfo($bookingId)
